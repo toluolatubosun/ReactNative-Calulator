@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const globalStyles = StyleSheet.create({
     results: {
-      backgroundColor: darkMode ? '#282f3b' : '#f5f5f5',
+      backgroundColor: '#f5f5f5',
       maxWidth: '100%',
       minHeight: '35%',
       alignItems: 'flex-end',
@@ -15,7 +15,7 @@ export const globalStyles = StyleSheet.create({
       fontSize: 35,
     },
     historyText: {
-      color: darkMode ? '#B5B7BB' : '#7c7c7c',
+      color: '#7c7c7c',
       fontSize: 20,
       marginRight: 10,
       alignSelf: 'flex-end',
@@ -24,7 +24,7 @@ export const globalStyles = StyleSheet.create({
       alignSelf: 'flex-start',
       bottom: '5%',
       margin: 15,
-      backgroundColor: darkMode ? '#7b8084' : '#e5e5e5',
+      backgroundColor: '#e5e5e5',
       alignItems: 'center',
       justifyContent: 'center',
       width: 50,
@@ -38,7 +38,7 @@ export const globalStyles = StyleSheet.create({
       flexWrap: 'wrap',
     },
     button: {
-      borderColor: darkMode ? '#3f4d5b' : '#e5e5e5',
+      borderColor: '#e5e5e5',
       alignItems: 'center',
       justifyContent: 'center',
       minWidth: '24%',
@@ -46,7 +46,7 @@ export const globalStyles = StyleSheet.create({
       flex: 2,
     },
     textButton: {
-      color: darkMode ? '#b5b7bb' : '#7c7c7c',
+      color: '#7c7c7c',
       fontSize: 28,
     }
 })
