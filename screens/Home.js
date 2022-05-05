@@ -2,34 +2,44 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import Button from '../components/Button';
 import tw from 'twrnc';
+import { create, all } from 'mathjs'
+
+const config = { }
+const math = create(all, config)
 
  /** 
  *  C ( ) /
  *  7 8 9 *
  *  4 5 6 -
  *  1 2 3 +
- *  DEL 0 . =
+ *  DEL 0 . ^
  * **/
 
 export default function Home(){
-    const [text, setText] = React.useState('0');
+    const [text, setText] = React.useState('');
     const [answer, setAnswer] = React.useState('0');
    
-    const Solve = (text) =>{
-        console.log(text);
-    }
+    React.useEffect(() => {
+        try{
+            setAnswer(math.evaluate(text));
+        }catch(e){
+            return
+        }
+    }, [text])
 
     const HandleClick = (value) =>{
-        console.log(value);
+        if (value === 'C') setText('');
+        else if (value === 'DEL') setText(text.slice(0, -1));
+        else setText(text + value);
     }
 
     return(
         <View style={tw`bg-gray-100 p-2`}>
             <View style={tw`mx-4 mt-2`}>
                 <Text style={tw`text-2xl text-right mb-2`}>
-                    {answer}
+                    {answer || "0"}
                 </Text>
-                <Text style={tw`font-medium break-all text-right`}>{text}</Text>
+                <Text style={tw`font-medium h-4 break-all text-right`}>{text}</Text>
             </View>
 
             <View style={tw`flex flex-row justify-around my-4`}>
@@ -127,8 +137,8 @@ export default function Home(){
                     onPress={() => HandleClick('.')}
                 />
                 <Button
-                    text="="
-                    onPress={() => Solve(text)}
+                    text="^"
+                    onPress={() => HandleClick('^')}
                     style="bg-blue-300"
                 />
             </View>
